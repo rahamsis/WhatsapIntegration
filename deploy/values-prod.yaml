@@ -1,0 +1,36 @@
+service:
+  externalPort: 8080
+  internalPort: 8080
+
+credentials:
+  - id: CUSTOMER_DB
+    user_variable: DATABASE_CUSTOMER_USERNAME
+    password_variable: DATABASE_CUSTOMER_PASSWORD
+  - id: PICKING_DB
+    user_variable: DATABASE_PICKING_USERNAME
+    password_variable: DATABASE_PICKING_PASSWORD
+  - id: RABBITMQ_CREDENTIALS
+    user_variable: RABBIT_USERNAME
+    password_variable: RABBIT_PASSWORD
+  
+
+secrets:
+  - name: DATABASE_CUSTOMER_USERNAME
+    value: DATABASE_CUSTOMER_USERNAME
+  - name: DATABASE_CUSTOMER_PASSWORD
+    value: DATABASE_CUSTOMER_PASSWORD
+  - name: DATABASE_PICKING_USERNAME
+    value: DATABASE_PICKING_USERNAME
+  - name: DATABASE_PICKING_PASSWORD
+    value: DATABASE_PICKING_PASSWORD
+  - name: RABBIT_USERNAME
+    value: RABBIT_USERNAME
+  - name: RABBIT_PASSWORD
+    value: RABBIT_PASSWORD
+
+deployment:
+  environments:
+    - name: DATABASE_HOST
+      value: "cloud-sql-pg-prod-read"
+    - name: DATABASE_PICKING_URI
+      value: "cloud-sql-pg-prod-02-read"
